@@ -18,9 +18,10 @@ OFFSET, FORMAT
 where FORMAT is a [struct](https://docs.python.org/2/library/struct.html) format string
 
 ```python
+#!/usr/bin/env python
+
 import datetime
 import binparse
-import hexdump
 
 def ignore(val):
     return "ignored"
@@ -44,6 +45,13 @@ def dump_type(val):
         return "Bitmap dump"
     return "Unknown dump type", val
 
+def valid_dump(val):
+    if val == "DU64":
+        return "64-bit"
+    elif val == "DUMP":
+        return "32-bit"
+    return "UNKNOWN"
+
 _context64 = ["CONTEXT64", [
     ("Rax",  [ 0x0078, binparse.DWORD64 ], hex),
     ("Rcx",  [ 0x0080, binparse.DWORD64 ], hex),
@@ -56,7 +64,7 @@ _context64 = ["CONTEXT64", [
 
 _fields64 = ["CRASHDUMP64", [
     ("Signature",            [0x0000, "4s"], None),
-    ("ValidDump",            [0x0004, "4s"], None),
+    ("ValidDump",            [0x0004, "4s"], valid_dump),
     ("MajorVersion",         [0x0008, "I"], None),
     ("MinorVersion",         [0x000c, "I"], None),
     ("DirectoryTableBase",   [0x0010, "L"], hex),

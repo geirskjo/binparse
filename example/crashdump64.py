@@ -2,7 +2,6 @@
 
 import datetime
 import binparse
-import hexdump
 
 def ignore(val):
     return "ignored"
