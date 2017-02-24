@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import datetime
-import binparse
+from binparse import binparse
 import hexdump
 
 def ignore(val):

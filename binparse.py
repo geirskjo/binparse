@@ -16,11 +16,13 @@
 
 import struct
 
+__all__ = ["BinParse", "BYTE", "WORD", "DWORD", "DWORD64"]
+
 # Simplify working with Windows headers.
 BYTE    = "B"
 WORD    = "H"
-WORD   = "I"
-WORD64 = "L"
+DWORD   = "I"
+DWORD64 = "L"
 
 class BinParse(object):
 
