@@ -111,6 +111,10 @@ Rsp 0xfffff880065987b8L
 
 ## Installation
 
+`% pip install binparse`
+
+or
+
 `% python setup.py install`
 
 ## Known issues
