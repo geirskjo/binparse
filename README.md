@@ -1,7 +1,7 @@
 binparse
 =========
 
-simple library to simplify writing of binary parsers.
+simple library to simplify writing of binary parsers when you have only partial information of the structure. When ctypes structures might be the right approach, but you do not have all elements of the structure, padding the data can be tedious. Also, in this library, a convertion function can be provided pr. structure to do further parsing or computations on the values.
 
 ## Usage
 
